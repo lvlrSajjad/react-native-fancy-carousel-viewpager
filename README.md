@@ -10,10 +10,10 @@
 ```javascript
 import React, {Component} from 'react';
 import { StyleSheet, Text, View, Image, TouchableOpacity, Dimensions} from 'react-native';
+import ModernNav from 'react-native-fancy-carousel-viewpager';
 import BrickList from 'react-native-masonry-brick-list';
 import App21 from './App21';
 import MyHeader from './MyHeader';
-import ModernNav from 'react-native-fancy-carousel-viewpager';
 
 let {height, width} = Dimensions.get('window');
 
@@ -44,19 +44,19 @@ export default class App extends Component<Props> {
     }
 
     render() {
-        // an array of id (unique) and view (any your pages components
+        // an array of  view (any your pages components
         // if your page just have a listview you can just put it in view i have scrollview inside)
         const data = [
-            {id: 1,view: <BrickList
+            {view: <BrickList
                     data={this.state.listData}
                     renderItem={(prop) => this.renderView(prop)}
                     columns={3}
                 />},
-            {id: 2,view: <View style={{height:height-20}}>
+            {view: <View style={{height:height-20}}>
                     <Text style={styles.welcome}>Welcome to React Native!</Text>
                     <Text style={styles.instructions}>To get started, edit App.js</Text>
                 </View>},
-            {id: 3,view: <App21 style={{height:height-20,width:width}}/>},
+            {view: <App21 style={{height:height-20,width:width}}/>},
         ];
 
         return (
@@ -69,13 +69,14 @@ export default class App extends Component<Props> {
 
                 {/*
                 header can be a component showing when nothing scrolled at first
-                data array of id and page components
+                data array page components
                 pageChanged is event when you change a page
                 */}
                 <ModernNav
                     header={<MyHeader pageNumber={this.state.pageNumber}/>}
                     data={data}
                     pageChanged={(pageNumber)=>{this.setState({pageNumber})}}
+                    topButtonColor={'#2196F3'}
                 />
 
             </View>
@@ -134,6 +135,7 @@ const styles = StyleSheet.create({
         marginBottom: 5,
     },
 });
+
 
 
 ```

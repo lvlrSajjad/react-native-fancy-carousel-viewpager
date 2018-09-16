@@ -67,7 +67,7 @@ export default class ModernNavItem extends Component {
                                 width: 52, height: 52,
                                 borderRadius: 26,
                                 overflow: 'hidden',
-                                backgroundColor: '#2196F3',
+                                backgroundColor: this.props.topButtonColor,
                                 justifyContent:'center',
                                 alignItems:'center'
                             }}

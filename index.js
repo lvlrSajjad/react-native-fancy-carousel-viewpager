@@ -24,11 +24,12 @@ export default class ModernNav extends Component {
                 <View style={styles.customListContainer}>
                     <ScrollView ref={(ref)=>this.scrollView=ref} onScrollEndDrag={this.handleScroll} style={{flex:1,borderRadius:16,zIndex:0}} horizontal={true}>
                         <View style={{flex:1,height:height, flexDirection: 'row'}}>
-                            {this.props.data.map((prop) => {
+                            {this.props.data.map((prop,index) => {
                                 return <ModernNavItem
-                                    key={prop.id}
+                                    key={index}
                                     item={prop}
                                     initialHeight={this.props.initialheight}
+                                    topButtonColor={this.props.topButtonColor}
                                 />
                             })}
                         </View>

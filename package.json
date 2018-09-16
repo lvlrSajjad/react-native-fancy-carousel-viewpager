@@ -8,8 +8,8 @@
   "keywords": [
     "react-native",
     "react-native-viewpager",
-	"react-native-fancy-carousel"
-	"react-native-carousel"
+	"react-native-fancy-carousel",
+	"react-native-carousel",
     "react-native-fancy-carousel-viewpager"
   ],
   "license": "MIT",
