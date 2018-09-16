@@ -10,7 +10,7 @@
 ```javascript
 import React, {Component} from 'react';
 import { StyleSheet, Text, View, Image, TouchableOpacity, Dimensions} from 'react-native';
-import ModernNav from 'react-native-fancy-carousel-viewpager';
+import ModernNav from 'react-native-fancy-carousel-viewpager'; // <-------------------- import library here
 import BrickList from 'react-native-masonry-brick-list';
 import App21 from './App21';
 import MyHeader from './MyHeader';
@@ -135,7 +135,5 @@ const styles = StyleSheet.create({
         marginBottom: 5,
     },
 });
-
-
 
 ```
