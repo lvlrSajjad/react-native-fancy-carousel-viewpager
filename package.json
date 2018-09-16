@@ -1,0 +1,34 @@
+{
+  
+  "author": {
+    "name": "Sajjad Asadi",
+    "email": "lvlr.xaus@gmail.com"
+  },
+  "homepage": "https://github.com/lvlrSajjad/react-native-fancy-carousel-viewpager",
+  "keywords": [
+    "react-native",
+    "react-native-viewpager",
+	"react-native-fancy-carousel"
+	"react-native-carousel"
+    "react-native-fancy-carousel-viewpager"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "maintainers": [
+    {
+      "name": "lvlrsajjad",
+      "email": "lvlr.xaus@gmail.com"
+    }
+  ],
+  "name": "react-native-fancy-carousel-viewpager",
+  "optionalDependencies": {},
+  "peerDependencies": {
+    "react-native": "^0.41.2",
+    "react-native-windows": "0.41.0-rc.1"
+  },
+  "readme": "ERROR: No README data found!",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "1.0.0"
+}
