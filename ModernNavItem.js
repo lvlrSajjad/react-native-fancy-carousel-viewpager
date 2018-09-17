@@ -24,7 +24,7 @@ export default class ModernNavItem extends Component {
     render() {
         return (
             <View>
-                <ScrollView style={{zIndex: 0}} ref={(ref) => this.scrollView = ref}
+                <ScrollView style={{zIndex: 999}} ref={(ref) => this.scrollView = ref}
                             nestedScrollEnabled onMomentumScrollEnd={this.handleScroll}>
                     <View style={{height: 2 * height / 3}}/>
                     <TouchableOpacity

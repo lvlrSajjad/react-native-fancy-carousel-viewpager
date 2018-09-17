@@ -3,6 +3,8 @@
 <img src="https://raw.githubusercontent.com/lvlrSajjad/react-native-fancy-carousel-viewpager/master/img.gif">
 <img src="https://raw.githubusercontent.com/lvlrSajjad/react-native-fancy-carousel-viewpager/master/img1.gif">
 <img src="https://raw.githubusercontent.com/lvlrSajjad/react-native-fancy-carousel-viewpager/master/img2.gif">
+<img src="https://raw.githubusercontent.com/lvlrSajjad/react-native-fancy-carousel-viewpager/master/img3.gif">
+
 ## Getting started
 
 `$ npm install react-native-fancy-carousel-viewpager --save`
@@ -11,7 +13,7 @@
 ```javascript
 import React, {Component} from 'react';
 import {StyleSheet, Text, View, Image, TouchableOpacity, Dimensions} from 'react-native';
-import ModernNav from 'react-native-fancy-carousel-viewpager'; // <-------------------- import library here
+import ModernNav,{openNav,closeNav} from 'react-native-fancy-carousel-viewpager'; // <-------------------- import library here
 import BrickList from 'react-native-masonry-brick-list';
 import App21 from './App21';
 import MyHeader from './MyHeader';
@@ -68,26 +70,45 @@ export default class App extends Component<Props> {
         return (
 
             <View style={styles.container}>
-                <TouchableOpacity
-                    style={styles.navButton}>
-                    <Image style={{alignSelf: 'center', width: 32, height: 32}} source={require('./menu_white.png')}/>
-                </TouchableOpacity>
-
                 {/**
                 header can be a component showing when nothing scrolled at first
                 data array page components
                 pageChanged is event when you change a page
                 **/}
                 <ModernNav
+                    // view (component) that you want to use on background
                     backgroundView={this.renderHeader()}
+                    //background color of view pager
                     backgroundColor={'#b9b9b9'}
+                    //actually a list of pages  (components) you can pass to view pager
                     data={data}
+                    //page change event
                     pageChanged={(pageNumber) => {
                         this.setState({pageNumber})
                     }}
+                    //color of button when scroll a view bottom right
                     topButtonColor={'#2196F3'}
+                    // inner navigation settings-----------------
+                    // if you want use navigation drawer inside of component
+                    useInnerNavigationDrawer={true}
+                    // if you want use navigation menu button top left of screen (false to hide button)
+                    useInnerNavigationButton={true}
+                    //icon that displayed on navigation menu button top left of screen you can use image or any icon library
+                    menuButtonIcon={<Image style={{alignSelf: 'center', width: 32, height: 32}} source={require('./menu_white.png')}/>}
+                    //color of navigation menu button top left of screen
+                    menuButtonColor={'#2196F3'}
+                    //navigation drawer item press event
+                    onNavigationItemPress={(item)=>{
+                        console.log(item);
+                        closeNav();
+                    }}
+                    //navigation drawer items list
+                    navigationData = {this.state.listData}
+                    //if you want to use image on navigation drawer like avatar image
+                    showImageOnNavigation={false}
+                    //image of navigation drawer
+                    navigationImageUri ='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwu7s_Ic3YioDVl9AmoJGsKbBuCKFVp2cD3KCPzdYlBLOcGmeV'
                 />
-
             </View>
         );
     }
@@ -104,13 +125,10 @@ export default class App extends Component<Props> {
                 <Image
                     style={{width: 84, height: 84, borderRadius: 42}}
                     source={{uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwu7s_Ic3YioDVl9AmoJGsKbBuCKFVp2cD3KCPzdYlBLOcGmeV'}}
-
                 />
                 <Text style={styles.welcome}>page {this.state.pageNumber}</Text>
-
                 <Text style={styles.welcome}>Welcome to React Native!</Text>
                 <Text style={styles.instructions}>To get started, edit App.js</Text>
-
             </View>
         )
     }
@@ -143,19 +161,7 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         margin: 10,
     },
-    navButton: {
-        width: 60,
-        height: 46,
-        position: 'absolute',
-        top: 16,
-        left: 0,
-        backgroundColor: "#03A9F4",
-        borderBottomRightRadius: 8,
-        borderTopRightRadius: 8,
-        zIndex: 999,
-        alignItems: 'center',
-        justifyContent: 'center'
-    },
+
     instructions: {
         textAlign: 'center',
         color: '#333333',
@@ -166,8 +172,8 @@ const styles = StyleSheet.create({
         color: 'white',
         marginBottom: 5,
     },
-});
 
+});
 
 
 ```
