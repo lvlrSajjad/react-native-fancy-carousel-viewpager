@@ -18,10 +18,12 @@ export default class ModernNav extends Component {
         return (
 
             <View style={styles.container}>
-                    {this.props.header}
 
 
                 <View style={styles.customListContainer}>
+                    <View style={{height:'100%',width:'100%',position:'absolute',backgroundColor:this.props.backgroundColor,paddingBottom:'33%'}}>
+                        {this.props.backgroundView}
+                    </View>
                     <ScrollView ref={(ref)=>this.scrollView=ref} onScrollEndDrag={this.handleScroll} style={{flex:1,borderRadius:16,zIndex:0}} horizontal={true}>
                         <View style={{flex:1,height:height, flexDirection: 'row'}}>
                             {this.props.data.map((prop,index) => {

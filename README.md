@@ -9,7 +9,7 @@
 ## Usage
 ```javascript
 import React, {Component} from 'react';
-import { StyleSheet, Text, View, Image, TouchableOpacity, Dimensions} from 'react-native';
+import {StyleSheet, Text, View, Image, TouchableOpacity, Dimensions} from 'react-native';
 import ModernNav from 'react-native-fancy-carousel-viewpager'; // <-------------------- import library here
 import BrickList from 'react-native-masonry-brick-list';
 import App21 from './App21';
@@ -22,8 +22,8 @@ export default class App extends Component<Props> {
     constructor(props) {
         super(props);
         this.state = {
-            pageNumber:1,
-            listData:[
+            pageNumber: 1,
+            listData: [
                 {id: '1', title: "Red", color: "#f44336", span: 1},
                 {id: '2', title: "Pink", color: "#E91E63", span: 2},
                 {id: '3', title: "Purple", color: "#9C27B0", span: 3},
@@ -43,20 +43,25 @@ export default class App extends Component<Props> {
         }
     }
 
+
     render() {
         // an array of  view (any your pages components
         // if your page just have a listview you can just put it in view i have scrollview inside)
         const data = [
-            {view: <BrickList
+            {
+                view: <BrickList
                     data={this.state.listData}
                     renderItem={(prop) => this.renderView(prop)}
                     columns={3}
-                />},
-            {view: <View style={{height:height-20}}>
+                />
+            },
+            {
+                view: <View style={{height: height - 20}}>
                     <Text style={styles.welcome}>Welcome to React Native!</Text>
                     <Text style={styles.instructions}>To get started, edit App.js</Text>
-                </View>},
-            {view: <App21 style={{height:height-20,width:width}}/>},
+                </View>
+            },
+            {view: <App21 style={{height: height - 20, width: width}}/>},
         ];
 
         return (
@@ -67,20 +72,46 @@ export default class App extends Component<Props> {
                     <Image style={{alignSelf: 'center', width: 32, height: 32}} source={require('./menu_white.png')}/>
                 </TouchableOpacity>
 
-                {/*
+                {/**
                 header can be a component showing when nothing scrolled at first
                 data array page components
                 pageChanged is event when you change a page
-                */}
+                **/}
                 <ModernNav
-                    header={<MyHeader pageNumber={this.state.pageNumber}/>}
+                    backgroundView={this.renderHeader()}
+                    backgroundColor={'#b9b9b9'}
                     data={data}
-                    pageChanged={(pageNumber)=>{this.setState({pageNumber})}}
+                    pageChanged={(pageNumber) => {
+                        this.setState({pageNumber})
+                    }}
                     topButtonColor={'#2196F3'}
                 />
 
             </View>
         );
+    }
+
+    //render your header view here or you can pass another component
+    renderHeader() {
+        return (
+            <View style={{
+                flex: 1,
+                width: width,
+                justifyContent: 'center',
+                alignItems: 'center',
+            }}>
+                <Image
+                    style={{width: 84, height: 84, borderRadius: 42}}
+                    source={{uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwu7s_Ic3YioDVl9AmoJGsKbBuCKFVp2cD3KCPzdYlBLOcGmeV'}}
+
+                />
+                <Text style={styles.welcome}>page {this.state.pageNumber}</Text>
+
+                <Text style={styles.welcome}>Welcome to React Native!</Text>
+                <Text style={styles.instructions}>To get started, edit App.js</Text>
+
+            </View>
+        )
     }
 
     renderView = (prop) => {
@@ -111,7 +142,7 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         margin: 10,
     },
-    navButton:{
+    navButton: {
         width: 60,
         height: 46,
         position: 'absolute',
@@ -120,9 +151,9 @@ const styles = StyleSheet.create({
         backgroundColor: "#03A9F4",
         borderBottomRightRadius: 8,
         borderTopRightRadius: 8,
-        zIndex:999,
-        alignItems:'center',
-        justifyContent:'center'
+        zIndex: 999,
+        alignItems: 'center',
+        justifyContent: 'center'
     },
     instructions: {
         textAlign: 'center',
@@ -135,5 +166,7 @@ const styles = StyleSheet.create({
         marginBottom: 5,
     },
 });
+
+
 
 ```
