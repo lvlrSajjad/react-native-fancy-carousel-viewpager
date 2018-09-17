@@ -1,5 +1,5 @@
 
-# react-native-rounded-navigation-drawer [![npm version](https://img.shields.io/npm/v/react-native-fancy-carousel-viewpager.svg)](https://www.npmjs.com/package/react-native-fancy-carousel-viewpager)
+# install react-native-fancy-carousel-viewpager [![npm version](https://img.shields.io/npm/v/react-native-fancy-carousel-viewpager.svg)](https://www.npmjs.com/package/react-native-fancy-carousel-viewpager)
 <img src="https://raw.githubusercontent.com/lvlrSajjad/react-native-fancy-carousel-viewpager/master/img.gif">
 
 ## Getting started
