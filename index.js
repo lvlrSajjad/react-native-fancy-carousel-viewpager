@@ -7,7 +7,8 @@ import {
     Animated,
     TouchableOpacity,
     FlatList,
-    Text
+    Text,
+    ImageBackground
 } from 'react-native';
 import ModernNavItem from './ModernNavItem';
 
@@ -80,6 +81,9 @@ export default class ModernNav extends Component {
                     </Animated.View>
                     }
                     {this.props.useInnerNavigationButton &&
+                    <ImageBackground style={{position: 'absolute',
+                        top: 32,
+                        left: 0,paddingRight:4,paddingBottom:4,paddingTop:4}} source={require('./btn-shadow.png')}>
                     <TouchableOpacity
                         style={[{backgroundColor: this.props.menuButtonColor}, styles.navButton]}
                         onPress={() => {
@@ -89,6 +93,7 @@ export default class ModernNav extends Component {
                         {this.props.menuButtonIcon}
 
                     </TouchableOpacity>
+                    </ImageBackground>
                     }
                 </View>
             </View>
@@ -149,9 +154,7 @@ const styles = StyleSheet.create({
     navButton: {
         width: 60,
         height: 46,
-        position: 'absolute',
-        top: 32,
-        left: 0,
+
         borderBottomRightRadius: 8,
         borderTopRightRadius: 8,
         alignItems: 'center',

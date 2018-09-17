@@ -1,9 +1,9 @@
 
 # install react-native-fancy-carousel-viewpager [![npm version](https://img.shields.io/npm/v/react-native-fancy-carousel-viewpager.svg)](https://www.npmjs.com/package/react-native-fancy-carousel-viewpager)
-<img src="https://raw.githubusercontent.com/lvlrSajjad/react-native-fancy-carousel-viewpager/master/img.gif">
-<img src="https://raw.githubusercontent.com/lvlrSajjad/react-native-fancy-carousel-viewpager/master/img1.gif">
-<img src="https://raw.githubusercontent.com/lvlrSajjad/react-native-fancy-carousel-viewpager/master/img2.gif">
-<img src="https://raw.githubusercontent.com/lvlrSajjad/react-native-fancy-carousel-viewpager/master/img3.gif">
+
+<img src="https://raw.githubusercontent.com/lvlrSajjad/react-native-fancy-carousel-viewpager/master/Untitled.png">
+<img src="https://raw.githubusercontent.com/lvlrSajjad/react-native-fancy-carousel-viewpager/master/img.gif"><img src="https://raw.githubusercontent.com/lvlrSajjad/react-native-fancy-carousel-viewpager/master/img1.gif">
+<img src="https://raw.githubusercontent.com/lvlrSajjad/react-native-fancy-carousel-viewpager/master/img2.gif"><img src="https://raw.githubusercontent.com/lvlrSajjad/react-native-fancy-carousel-viewpager/master/img3.gif">
 
 ## Getting started
 
