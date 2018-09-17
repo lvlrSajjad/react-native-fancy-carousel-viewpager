@@ -25,7 +25,7 @@ export default class ModernNavItem extends Component {
         return (
             <View>
                 <ScrollView style={{zIndex: 0}} ref={(ref) => this.scrollView = ref}
-                            onScrollEndDrag={this.handleScroll}>
+                            nestedScrollEnabled onMomentumScrollEnd={this.handleScroll}>
                     <View style={{height: 2 * height / 3}}/>
                     <TouchableOpacity
                         key={this.props.item.id}
@@ -33,8 +33,6 @@ export default class ModernNavItem extends Component {
                             width: width,
                             marginRight: 8,
                             overflow: 'hidden',
-
-
                         }}
                         activeOpacity={1}
                     >
@@ -89,12 +87,11 @@ export default class ModernNavItem extends Component {
 
     handleScroll = (event: Object) => {
         console.log(event.nativeEvent);
-
         if (this.state.isOnTop && parseInt(event.nativeEvent.contentOffset.y) > 0) {
             this.setState({isOnTop: false},()=>{
                 openFab()
             })
-        } else if (!this.state.isOnTop && parseInt(event.nativeEvent.contentOffset.y) <= 0) {
+        } else if (!this.state.isOnTop && parseInt(event.nativeEvent.contentOffset.y) <= 200) {
             console.log(event.nativeEvent.contentOffset.y);
             closeFab();
         }

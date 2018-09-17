@@ -3,30 +3,31 @@ import {
     StyleSheet,
     View,
     Dimensions,
-    ScrollView
+    ScrollView,
+    Animated
 } from 'react-native';
 import ModernNavItem from './ModernNavItem';
-let {height,width} = Dimensions.get('window');
+
+let {height, width} = Dimensions.get('window');
 
 export default class ModernNav extends Component {
 
     constructor(props) {
         super(props);
+
     }
 
     render() {
         return (
-
             <View style={styles.container}>
-
-
                 <View style={styles.customListContainer}>
-                    <View style={{height:'100%',width:'100%',position:'absolute',backgroundColor:this.props.backgroundColor,paddingBottom:'33%'}}>
+                    <View style={[{backgroundColor: this.props.backgroundColor},styles.headerContainer]}>
                         {this.props.backgroundView}
                     </View>
-                    <ScrollView ref={(ref)=>this.scrollView=ref} onScrollEndDrag={this.handleScroll} style={{flex:1,borderRadius:16,zIndex:0}} horizontal={true}>
-                        <View style={{flex:1,height:height, flexDirection: 'row'}}>
-                            {this.props.data.map((prop,index) => {
+                    <ScrollView ref={(ref) => this.scrollView = ref}  onMomentumScrollEnd={this.handleScroll}  nestedScrollEnabled
+                                style={{flex: 1, borderRadius: 16, zIndex: 0}} horizontal={true}>
+                        <View style={{flex: 1, height: height, flexDirection: 'row'}}>
+                            {this.props.data.map((prop, index) => {
                                 return <ModernNavItem
                                     key={index}
                                     item={prop}
@@ -41,9 +42,15 @@ export default class ModernNav extends Component {
 
         );
     }
-    handleScroll=(event: Object)=>{
-        this.scrollView.scrollTo({x: Math.round(event.nativeEvent.contentOffset.x/(width+8))*(width+8), y: 0, animated: true})
-        this.props.pageChanged((Math.round(event.nativeEvent.contentOffset.x/(width+8))*(width+8))/(width+8)+1)
+
+    handleScroll = (event: Object) => {
+        const pageNumber =(Math.round(event.nativeEvent.contentOffset.x / (width + 8)) * (width + 8)) / (width + 8) + 1;
+        this.scrollView.scrollTo({
+            x: Math.round(event.nativeEvent.contentOffset.x / (width + 8)) * (width + 8),
+            y: 0,
+            animated: true
+        })
+        this.props.pageChanged(pageNumber)
     }
 }
 
@@ -57,14 +64,20 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     header: {
-        width:width,
-        height:height
+        width: width,
+        height: height
     },
     customListContainer: {
-        top:0,
-        left:0,
+        top: 0,
+        left: 0,
         position: 'absolute',
-        right:0,
+        right: 0,
     },
+    headerContainer: {
+        height: '100%',
+        width: '100%',
+        position: 'absolute',
+        paddingBottom: '33%'
+    }
 });
 
