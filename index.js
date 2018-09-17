@@ -9,7 +9,7 @@ import {
 import ModernNavItem from './ModernNavItem';
 
 let {height, width} = Dimensions.get('window');
-
+let lastPageNumber =1;
 export default class ModernNav extends Component {
 
     constructor(props) {
@@ -45,12 +45,16 @@ export default class ModernNav extends Component {
 
     handleScroll = (event: Object) => {
         const pageNumber =(Math.round(event.nativeEvent.contentOffset.x / (width + 8)) * (width + 8)) / (width + 8) + 1;
+
         this.scrollView.scrollTo({
             x: Math.round(event.nativeEvent.contentOffset.x / (width + 8)) * (width + 8),
             y: 0,
             animated: true
         })
-        this.props.pageChanged(pageNumber)
+        if (pageNumber != lastPageNumber) {
+            lastPageNumber = pageNumber;
+            this.props.pageChanged(pageNumber)
+        }
     }
 }
 
